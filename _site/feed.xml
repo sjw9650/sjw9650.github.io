@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-11-19T13:48:21+09:00</updated><id>http://localhost:4000/</id><entry><title type="html">About this blog</title><link href="http://localhost:4000/posts/2017/11/18/about.html" rel="alternate" type="text/html" title="About this blog" /><published>2017-11-19T03:30:00+09:00</published><updated>2017-11-19T03:30:00+09:00</updated><id>http://localhost:4000/posts/2017/11/18/about</id><content type="html" xml:base="http://localhost:4000/posts/2017/11/18/about.html">&lt;h2 id=&quot;introducing-flex-a-jekyll-theme&quot;&gt;Introducing Flex, a Jekyll theme&lt;/h2&gt;
+
+&lt;p&gt;Flex is a minimalist, responsive theme based on the website, &lt;a href=&quot;http://thedevelopment.co&quot;&gt;The Development&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;open-sourced-on-github&quot;&gt;Open Sourced on GitHub&lt;/h2&gt;
+
+&lt;p&gt;Flex is open sourced on GitHub and is licensed under the &lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;MIT License&lt;/a&gt;. Feel free to contribute to it anytime!&lt;/p&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+
+&lt;p&gt;The theme currently being used was based on &lt;a href=&quot;https://github.com/the-development/flex&quot;&gt;this&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Introducing Flex, a Jekyll theme</summary></entry></feed>
