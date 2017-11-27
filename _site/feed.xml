@@ -1,4 +1,61 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-11-21T23:33:24+09:00</updated><id>http://localhost:4000/</id><entry><title type="html">BOJ 14501 퇴사</title><link href="http://localhost:4000/posts/2017/11/21/BOJ14501.html" rel="alternate" type="text/html" title="BOJ 14501 퇴사" /><published>2017-11-21T14:30:00+09:00</published><updated>2017-11-21T14:30:00+09:00</updated><id>http://localhost:4000/posts/2017/11/21/BOJ14501</id><content type="html" xml:base="http://localhost:4000/posts/2017/11/21/BOJ14501.html">&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-11-27T17:52:54+09:00</updated><id>http://localhost:4000/</id><entry><title type="html">BOJ 2133 타일 채우기</title><link href="http://localhost:4000/posts/2017/11/27/BOJ2133.html" rel="alternate" type="text/html" title="BOJ 2133 타일 채우기" /><published>2017-11-27T08:51:00+09:00</published><updated>2017-11-27T08:51:00+09:00</updated><id>http://localhost:4000/posts/2017/11/27/BOJ2133</id><content type="html" xml:base="http://localhost:4000/posts/2017/11/27/BOJ2133.html">&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/2133&quot;&gt;문제&lt;/a&gt;&lt;/h1&gt;
+&lt;p&gt;&lt;br /&gt;
+3×N 크기의 벽을 2×1, 1×2 크기의 타일로 채우는 경우의 수를 구해보자.
+&lt;br /&gt;&lt;/p&gt;
+&lt;h1 id=&quot;입력&quot;&gt;입력&lt;/h1&gt;
+&lt;p&gt;&lt;br /&gt;
+첫째 줄에 N(1 ≤ N ≤ 30)이 주어진다.
+&lt;br /&gt;&lt;/p&gt;
+&lt;h1 id=&quot;출력&quot;&gt;출력&lt;/h1&gt;
+&lt;p&gt;&lt;br /&gt;
+첫째 줄에 경우의 수를 출력한다.
+&lt;br /&gt;&lt;/p&gt;
+&lt;h1 id=&quot;해결-방법&quot;&gt;해결 방법&lt;/h1&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;홀수 일때의 값은 신경쓸 필요가 없다. 모든 홀수의 경우는 0이다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;N = 2 일때, 3개의 경우의 수가 발생하고, 3×2 타일을 이어 붙였을 때, 경계에서 2개의 새로운 경우의 수가 발생한다. 이 새로운 경우를 F케이스로 명명하자.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;즉, 각 N 값은 3×N-2 를 완성한 경우에서 3×2 타일의 붙이는 경우의 수와 N-j (4&amp;lt;=j&amp;lt;=N (j+2))인 K케이스에  발생하는 경우의 수를 합하면 해결된다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;6을 예로 하면, 3×4 타일의 경우의 수인 11 *3 과 3x4타일에 새로운 타일을 붙일 때 만들어지는 K케이스는 3x4타일에서 K케이스가 없을 때와 있을 때로 나누어 보면 3 *2 + 1 *2 의 값이 나온다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h1 id=&quot;코드&quot;&gt;코드&lt;/h1&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+using namespace std;
+
+int index[31];
+
+int main() {
+	int n = 0;
+	cin &amp;gt;&amp;gt; n;
+
+	int result = 0;
+	index[0] = 1;
+	index[2] = 3;
+	
+	for (int i = 4; i &amp;lt;= n; i += 2) {
+		index[i] += index[i - 2] * index[2]; // 3*i-2로 만들어진 타일에 3*2의 타일을 추가할 경우의 수
+
+		for (int j = 4; j &amp;lt;= i; j++) {
+			index[i] += index[i - j] * 2; // 3*2타일들이 붙었을 때, 그 사이에 2개 만큼의 경우의 수가 추가 발생
+		}
+	}
+	cout &amp;lt;&amp;lt; index[n];
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">문제 3×N 크기의 벽을 2×1, 1×2 크기의 타일로 채우는 경우의 수를 구해보자. 입력 첫째 줄에 N(1 ≤ N ≤ 30)이 주어진다. 출력 첫째 줄에 경우의 수를 출력한다. 해결 방법</summary></entry><entry><title type="html">BOJ 14501 퇴사</title><link href="http://localhost:4000/posts/2017/11/21/BOJ14501.html" rel="alternate" type="text/html" title="BOJ 14501 퇴사" /><published>2017-11-21T14:30:00+09:00</published><updated>2017-11-21T14:30:00+09:00</updated><id>http://localhost:4000/posts/2017/11/21/BOJ14501</id><content type="html" xml:base="http://localhost:4000/posts/2017/11/21/BOJ14501.html">&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/14501&quot;&gt;문제&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;&lt;br /&gt;
 상담원으로 일하고 있는 백준이는 퇴사를 하려고 한다.&lt;/p&gt;
