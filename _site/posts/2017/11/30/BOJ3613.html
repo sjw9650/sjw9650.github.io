@@ -3,7 +3,7 @@
   <head>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title>Jinwook.Song- Home</title>
+      <title>Jinwook.Song- BOJ 3613 Java vs C++</title>
       <meta name="viewport" content="width=device-width">
 
       <!-- syntax highlighting CSS -->
@@ -101,9 +101,7 @@
         </div>
       </div>
 
-        
-
-<div class="content" id="home">
+        <div class="content" id="home">
   <div id="sidebar-button">
     <img src="/images/sidebar-button.png">
   </div>
@@ -112,68 +110,55 @@
       <img id="cover-photo" src="/images/cover.jpg">
     </div>
     <div id="info-container">
-      <h1 id="title">BOJ 1003 피보나치 함수</h1>
-      <span id="date">01 Dec 2017</span>
+      <h1 id="title">BOJ 3613 Java vs C++</h1>
+      <span id="date">30 Nov 2017</span>
     </div>
   </div>
 
   <div class="post">
     <p><br /></p>
-<h1 id="문제"><a href="https://www.acmicpc.net/problem/1003">문제</a></h1>
+<h1 id="문제"><a href="https://www.acmicpc.net/problem/3613">문제</a></h1>
 
 <p><br />
-다음 소스는 N번째 피보나치 함수를 구하는 함수이다.</p>
+Java 예찬론자 김동규와 C++ 옹호가 김동혁은 서로 어떤 프로그래밍 언어가 최고인지 몇 시간동안 토론을 하곤 했다. 동규는 Java가 명확하고 에러가 적은 프로그램을 만든다고 주장했고, 동혁이는 Java는 프로그램이 느리고, 긴 소스 코드를 갖는 점과 제네릭 배열의 인스턴스화의 무능력을 비웃었다.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int fibonacci(int n) {
-    if (n==0) {
-        printf("0");
-        return 0;
-    } else if (n==1) {
-        printf("1");
-        return 1;
-    } else {
-        return fibonacci(n‐1) + fibonacci(n‐2);
-    }
-}
-</code></pre></div></div>
+<p>또, 김동규와 김동혁은 변수 이름을 짓는 방식도 서로 달랐다. Java에서는 변수의 이름이 여러 단어로 이루어져있을 때, 다음과 같은 방법으로 변수명을 짓는다.</p>
 
-<p>fibonacci(3)을 호출하면 다음과 같은 일이 일어난다.</p>
+<p>첫 단어는 소문자로 쓰고, 다음 단어부터는 첫 문자만 대문자로 쓴다. 또, 모든 단어는 붙여쓴다. 따라서 Java의 변수명은 javaIdentifier, longAndMnemonicIdentifier, name, bAEKJOON과 같은 형태이다.</p>
 
-<p>fibonacci(3)은 fibonacci(2)와 fibonacci(1) (첫 번째 호출)을 호출한다.</p>
+<p>반면에 C++에서는 변수명에 소문자만 사용한다. 단어와 단어를 구분하기 위해서 밑줄(‘_‘)을 이용한다. C++ 변수명은 c_identifier, long_and_mnemonic_identifier, name, b_a_e_k_j_o_o_n과 같은 형태이다.</p>
 
-<p>fibonacci(2)는 fibonacci(1) (두 번째 호출)과 fibonacci(0)을 호출한다.</p>
+<p>이 둘의 싸움을 부질없다고 느낀 재원이는 C++형식의 변수명을 Java형식의 변수명으로, 또는 그 반대로 바꿔주는 프로그램을 만드려고 한다. 각 언어의 변수명 형식의 위의 설명을 따라야 한다.</p>
 
-<p>두 번째 호출한 fibonacci(1)은 1을 출력하고 1을 리턴한다.</p>
+<p>재원이의 프로그램은 가장 먼저 변수명을 입력으로 받은 뒤, 이 변수명이 어떤 언어 형식인지를 알아내야 한다. 그 다음, C++형식이라면 Java형식으로, Java형식이라면 C++형식으로 바꾸면 된다. 만약 C++형식과 Java형식 둘 다 아니라면, 에러를 발생시킨다. 변수명을 변환할 때, 단어의 순서는 유지되어야 한다.</p>
 
-<p>fibonacci(0)은 0을 출력하고, 0을 리턴한다.</p>
+<p>재원이는 프로그램을 만드려고 했으나, 너무 귀찮은 나머지 이를 문제를 읽는 사람의 몫으로 맡겨놨다.</p>
 
-<p>fibonacci(2)는 fibonacci(1)과 fibonacci(0)의 결과를 얻고, 1을 리턴한다.</p>
-
-<p>첫 번째 호출한 fibonacci(1)은 1을 출력하고, 1을 리턴한다.</p>
-
-<p>fibonacci(3)은 fibonacci(2)와 fibonacci(1)의 결과를 얻고, 2를 리턴한다.</p>
-
-<p>이 때, 1은 2번 출력되고, 0은 1번 출력된다. N이 주어졌을 때, fibonacci(N)을 호출했을 때, 0과 1이 각각 몇 번 출력되는지 구하는 프로그램을 작성하시오.
+<p>재원이가 만드려고 한 프로그램을 대신 만들어보자.
 <br /></p>
 <h1 id="입력">입력</h1>
 <p><br />
-첫째 줄에 테스트 케이스의 개수 T가 주어진다. 각 테스트 케이스는 다음과 같이 구성되어있다.</p>
-
-<p>첫째 줄에 N이 주어진다. N은 40보다 작거나 같은 자연수 또는 0이다.
+첫째 줄에 변수명이 주어진다. 영어 알파벳과 밑줄(‘_‘)로만 이루어져 있고, 길이는 100을 넘지 않는다.
 <br /></p>
 <h1 id="출력">출력</h1>
 <p><br />
-각 테스트 케이스마다 0이 출력되는 횟수와 1이 출력되는 횟수를 공백으로 구분해서 출력한다.
+입력으로 주어진 변수명이 Java형식이면, C++형식으로 출력하고, C++형식이라면 Java형식으로 출력한다. 둘 다 아니라면 “Error!”를 출력한다.
 <br /></p>
 <h1 id="해결-방법">해결 방법</h1>
 <p><br /></p>
 
 <ol>
   <li>
-    <p>함수를 보면 재귀호출로 n-1,n-2의 값을 호출한다. 그 말의 의미는 그 전 값들을 이용하면 재귀 호출 없이 그것들을 알 수 있게 된다.</p>
+    <p>String을 C++로 처리하는 건 자바보다 불편하다고 하지만 해봤다.</p>
   </li>
   <li>
-    <p>이는 DP에서 Bottom-Up 방식으로 데이터를 하나하나 차곡차곡 쌓으면 된다.</p>
+    <p>Java 케이스는 맨 앞에 대문자가 들어가지 않는 대소 문자로 이루어진 케이스이다.</p>
+  </li>
+  <li>
+    <p>C++ 케이스는 맨 앞과 맨뒤에 ‘<em>‘가 들어가지 않는 ‘</em>‘와 소문자로 이루어진 케이스이다.</p>
+  </li>
+  <li>
+    <p>엄청 여러번 제출하게 되었는데 그 이유는 ‘_‘가 두번 연속으로 나오는 케이스는 Error이기 때문이다. Java 케이스의 경우 연속적으로 대문자가 두번 나와도 가능하다.</p>
   </li>
 </ol>
 
@@ -181,41 +166,71 @@
 <h1 id="코드">코드</h1>
 <p><br /></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;iostream&gt;
-#include &lt;algorithm&gt;
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;string&gt;
+#include &lt;iostream&gt;
+
 using namespace std;
-int dp[41][2];
-int main() {
-	int T;
-	cin &gt;&gt; T;
-	int *arr = new int[T];
-	for (int i = 0; i &lt; T; i++)
-	{
-		cin &gt;&gt; arr[i];
-	}
 
-	dp[0][0] = 1; dp[0][1] = 0;
-	dp[1][0] = 0; dp[1][1] = 1;
+int main(){
+  string input_data;
+  cin &gt;&gt; input_data;
+
+  int input_data_size = input_data.length();
+  int flags= 0;
+
+  if (input_data.find("_") != -1) {
+      flags=1;
+  }
+
+
+  int flags_=0;
+  string result="";
+  int temp_int = 'a' - 'A';
+  int temp_int2 = 'A' - 'a';
+
+  for(int i =0;i&lt;input_data_size;i++){
+
+    char temp_char = input_data.at(i);
+
+	if (((i == 0 || i == input_data_size-1) &amp;&amp; (temp_char == '_'))|| (i==0 &amp;&amp; temp_char &gt;= 'A' &amp;&amp; temp_char &lt;= 'Z')) {
+		result = "Error!";
+		break;
+	}
 	
-	for (int i = 2; i &lt;= 40; i++)
-	{
-		for (int j = 0; j &lt; 2; j++)
-			dp[i][j] = dp[i - 1][j] + dp[i - 2][j];
+    if(temp_char &gt;= 'a' &amp;&amp; temp_char &lt;= 'z'){
+      if(flags_ == 1){
+        temp_char += temp_int2;
+        flags_=0;
+      }
+        result += temp_char;
+    }
+    else if(temp_char &gt;= 'A' &amp;&amp; temp_char &lt;= 'Z'){
+      if(flags == 0){
+		  temp_char += temp_int;
+		  result += '_';
+		  result += temp_char;
+      }else {
+		result = "Error!";
+        break;
+      }
+    }else if(flags==1){
+      if(temp_char=='_' &amp;&amp; flags_ ==0){
+		  flags_ = 1;
+	  }else {
+		  result = "Error!";
+		  break;
+      }
 	}
+  }
 
-	for (int i = 0; i &lt; T; i++)
-	{
-		for (int j = 0; j &lt; 2; j++)
-			cout &lt;&lt; dp[arr[i]][j] &lt;&lt; " ";
-		cout &lt;&lt; endl;
-	}
-}	
+  cout&lt;&lt;result;
+}
 </code></pre></div></div>
 
   </div>
   <div class="colophon">
     <p>
-      <span id="pub-date">Published on 01 Dec 2017</span> <span class="separator">&bull;</span>
+      <span id="pub-date">Published on 30 Nov 2017</span> <span class="separator">&bull;</span>
       <span id="social">Refer to <a href="https://github.com/the-development/flex">Theme</a></span>
     </p>
   </div>
