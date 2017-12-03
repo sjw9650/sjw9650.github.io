@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-12-03T23:40:31+09:00</updated><id>http://localhost:4000/</id><entry><title type="html">BOJ 14502 연구소</title><link href="http://localhost:4000/posts/2017/12/03/BOJ14502.html" rel="alternate" type="text/html" title="BOJ 14502 연구소" /><published>2017-12-03T14:38:00+09:00</published><updated>2017-12-03T14:38:00+09:00</updated><id>http://localhost:4000/posts/2017/12/03/BOJ14502</id><content type="html" xml:base="http://localhost:4000/posts/2017/12/03/BOJ14502.html">&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-12-03T23:48:48+09:00</updated><id>http://localhost:4000/</id><entry><title type="html">BOJ 14502 연구소</title><link href="http://localhost:4000/posts/2017/12/03/BOJ14502.html" rel="alternate" type="text/html" title="BOJ 14502 연구소" /><published>2017-12-03T14:38:00+09:00</published><updated>2017-12-03T14:38:00+09:00</updated><id>http://localhost:4000/posts/2017/12/03/BOJ14502</id><content type="html" xml:base="http://localhost:4000/posts/2017/12/03/BOJ14502.html">&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/14502&quot;&gt;문제&lt;/a&gt;&lt;/h1&gt;
 
 &lt;p&gt;&lt;br /&gt;
@@ -823,7 +823,13 @@ public static void main(String args[]) throws IOException{
     bf.close();
 }	
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">문제 n가지 종류의 동전이 있다. 각각의 동전이 나타내는 가치는 다르다. 이 동전들을 적당히 사용해서, 그 가치의 합이 k원이 되도록 하고 싶다. 그 경우의 수를 구하시오. (각각의 동전은 몇 개라도 사용할 수 있다.) 입력 첫째줄에 n, k가 주어진다. (1 ≤ n ≤ 100, 1 ≤ k ≤ 10,000) 다음 n개의 줄에는 각각의 동전의 가치가 주어진다. 출력 첫째 줄에 경우의 수를 출력한다. 경우의 수는 2^31보다 작다. 해결 방법</summary></entry><entry><title type="html">About this blog</title><link href="http://localhost:4000/posts/2017/11/18/about.html" rel="alternate" type="text/html" title="About this blog" /><published>2017-11-19T03:30:00+09:00</published><updated>2017-11-19T03:30:00+09:00</updated><id>http://localhost:4000/posts/2017/11/18/about</id><content type="html" xml:base="http://localhost:4000/posts/2017/11/18/about.html">&lt;h2 id=&quot;introducing-flex-a-jekyll-theme&quot;&gt;Introducing Flex, a Jekyll theme&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">문제 n가지 종류의 동전이 있다. 각각의 동전이 나타내는 가치는 다르다. 이 동전들을 적당히 사용해서, 그 가치의 합이 k원이 되도록 하고 싶다. 그 경우의 수를 구하시오. (각각의 동전은 몇 개라도 사용할 수 있다.) 입력 첫째줄에 n, k가 주어진다. (1 ≤ n ≤ 100, 1 ≤ k ≤ 10,000) 다음 n개의 줄에는 각각의 동전의 가치가 주어진다. 출력 첫째 줄에 경우의 수를 출력한다. 경우의 수는 2^31보다 작다. 해결 방법</summary></entry><entry><title type="html">About this blog</title><link href="http://localhost:4000/posts/2017/11/18/about.html" rel="alternate" type="text/html" title="About this blog" /><published>2017-11-19T03:30:00+09:00</published><updated>2017-11-19T03:30:00+09:00</updated><id>http://localhost:4000/posts/2017/11/18/about</id><content type="html" xml:base="http://localhost:4000/posts/2017/11/18/about.html">&lt;h2 id=&quot;blog-content&quot;&gt;Blog content&lt;/h2&gt;
+
+&lt;p&gt;I am a computer programmer. &lt;br /&gt;
+I am studying for the algorithm contest. &lt;br /&gt;
+This is where I write algorithms for algorithms. &lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;introducing-flex-a-jekyll-theme&quot;&gt;Introducing Flex, a Jekyll theme&lt;/h2&gt;
 
 &lt;p&gt;Flex is a minimalist, responsive theme based on the website, &lt;a href=&quot;http://thedevelopment.co&quot;&gt;The Development&lt;/a&gt;.&lt;/p&gt;
 
@@ -833,4 +839,4 @@ public static void main(String args[]) throws IOException{
 
 &lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
 
-&lt;p&gt;The theme currently being used was based on &lt;a href=&quot;https://github.com/the-development/flex&quot;&gt;this&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Introducing Flex, a Jekyll theme</summary></entry></feed>
+&lt;p&gt;The theme currently being used was based on &lt;a href=&quot;https://github.com/the-development/flex&quot;&gt;this&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Blog content</summary></entry></feed>
