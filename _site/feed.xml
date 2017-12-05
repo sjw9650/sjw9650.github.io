@@ -1,4 +1,62 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-12-03T23:48:48+09:00</updated><id>http://localhost:4000/</id><entry><title type="html">BOJ 14502 연구소</title><link href="http://localhost:4000/posts/2017/12/03/BOJ14502.html" rel="alternate" type="text/html" title="BOJ 14502 연구소" /><published>2017-12-03T14:38:00+09:00</published><updated>2017-12-03T14:38:00+09:00</updated><id>http://localhost:4000/posts/2017/12/03/BOJ14502</id><content type="html" xml:base="http://localhost:4000/posts/2017/12/03/BOJ14502.html">&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-12-05T15:24:52+09:00</updated><id>http://localhost:4000/</id><entry><title type="html">BOJ 1152 단어의 개수</title><link href="http://localhost:4000/posts/2017/12/05/BOJ1152.html" rel="alternate" type="text/html" title="BOJ 1152 단어의 개수" /><published>2017-12-05T06:20:00+09:00</published><updated>2017-12-05T06:20:00+09:00</updated><id>http://localhost:4000/posts/2017/12/05/BOJ1152</id><content type="html" xml:base="http://localhost:4000/posts/2017/12/05/BOJ1152.html">&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/1152&quot;&gt;문제&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;&lt;br /&gt;
+영어 대소문자와 띄어쓰기만으로 이루어진 문장이 주어진다. 이 문장에는 몇 개의 단어가 있을까? 이를 구하는 프로그램을 작성하시오.
+&lt;br /&gt;&lt;/p&gt;
+&lt;h1 id=&quot;입력&quot;&gt;입력&lt;/h1&gt;
+&lt;p&gt;&lt;br /&gt;
+첫 줄에 영어 대소문자와 띄어쓰기로 이루어진 문장이 주어진다. 이 문장의 길이는 1,000,000을 넘지 않는다. 단어는 띄어쓰기 한 개로 구분된다.
+&lt;br /&gt;&lt;/p&gt;
+&lt;h1 id=&quot;출력&quot;&gt;출력&lt;/h1&gt;
+&lt;p&gt;&lt;br /&gt;
+첫째 줄에 단어의 개수를 출력한다.
+&lt;br /&gt;&lt;/p&gt;
+&lt;h1 id=&quot;해결-방법&quot;&gt;해결 방법&lt;/h1&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;단순히 getline을 통해 한줄을 스트링으로 받고 at() 함수를 통해 모든 위치의 공백의 개수를 카운트 했다. 그리고 맨 앞과 맨 뒤가 공백일 경우에 대한 경우를 제외했다. 이는 문장의 길이가 1,000,000이 넘지 않기 때문에 가능했다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;처음엔 string의 find 함수를 통해서 단어를 끊어가면서 하였지만, 시간초과가 발생하였다. 그 이유는 while문에서 무한 루프가 발생할 것이라구 생각해본다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;
+	while (input_string.find(&quot; &quot;)!= string::npos) {
+		int location = input_string.find(&quot; &quot;);
+		counts++;
+		temp_string = input_string.substr(location+1, len_string-1);
+		len_string = len_string - location -1;
+		input_string = temp_string;
+	}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h1 id=&quot;코드&quot;&gt;코드&lt;/h1&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+#include &amp;lt;string&amp;gt;
+using namespace std;
+
+int main() {
+	string input_string;
+	getline(cin,input_string);
+	int counts = 1;
+	int len_string = input_string.length();
+
+	for (int i = 0; i &amp;lt; len_string; i++) {
+		if (input_string.at(i) == ' ') counts++;
+	}
+
+	if (input_string.at(0) == ' ')counts--;
+	if (input_string.at(len_string-1) == ' ')counts--;
+
+	cout &amp;lt;&amp;lt; counts;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">문제</summary></entry><entry><title type="html">BOJ 14502 연구소</title><link href="http://localhost:4000/posts/2017/12/03/BOJ14502.html" rel="alternate" type="text/html" title="BOJ 14502 연구소" /><published>2017-12-03T14:38:00+09:00</published><updated>2017-12-03T14:38:00+09:00</updated><id>http://localhost:4000/posts/2017/12/03/BOJ14502</id><content type="html" xml:base="http://localhost:4000/posts/2017/12/03/BOJ14502.html">&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/14502&quot;&gt;문제&lt;/a&gt;&lt;/h1&gt;
 
 &lt;p&gt;&lt;br /&gt;
@@ -823,20 +881,4 @@ public static void main(String args[]) throws IOException{
     bf.close();
 }	
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">문제 n가지 종류의 동전이 있다. 각각의 동전이 나타내는 가치는 다르다. 이 동전들을 적당히 사용해서, 그 가치의 합이 k원이 되도록 하고 싶다. 그 경우의 수를 구하시오. (각각의 동전은 몇 개라도 사용할 수 있다.) 입력 첫째줄에 n, k가 주어진다. (1 ≤ n ≤ 100, 1 ≤ k ≤ 10,000) 다음 n개의 줄에는 각각의 동전의 가치가 주어진다. 출력 첫째 줄에 경우의 수를 출력한다. 경우의 수는 2^31보다 작다. 해결 방법</summary></entry><entry><title type="html">About this blog</title><link href="http://localhost:4000/posts/2017/11/18/about.html" rel="alternate" type="text/html" title="About this blog" /><published>2017-11-19T03:30:00+09:00</published><updated>2017-11-19T03:30:00+09:00</updated><id>http://localhost:4000/posts/2017/11/18/about</id><content type="html" xml:base="http://localhost:4000/posts/2017/11/18/about.html">&lt;h2 id=&quot;blog-content&quot;&gt;Blog content&lt;/h2&gt;
-
-&lt;p&gt;I am a computer programmer. &lt;br /&gt;
-I am studying for the algorithm contest. &lt;br /&gt;
-This is where I write algorithms for algorithms. &lt;br /&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;introducing-flex-a-jekyll-theme&quot;&gt;Introducing Flex, a Jekyll theme&lt;/h2&gt;
-
-&lt;p&gt;Flex is a minimalist, responsive theme based on the website, &lt;a href=&quot;http://thedevelopment.co&quot;&gt;The Development&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2 id=&quot;open-sourced-on-github&quot;&gt;Open Sourced on GitHub&lt;/h2&gt;
-
-&lt;p&gt;Flex is open sourced on GitHub and is licensed under the &lt;a href=&quot;http://opensource.org/licenses/MIT&quot;&gt;MIT License&lt;/a&gt;. Feel free to contribute to it anytime!&lt;/p&gt;
-
-&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
-
-&lt;p&gt;The theme currently being used was based on &lt;a href=&quot;https://github.com/the-development/flex&quot;&gt;this&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Blog content</summary></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">문제 n가지 종류의 동전이 있다. 각각의 동전이 나타내는 가치는 다르다. 이 동전들을 적당히 사용해서, 그 가치의 합이 k원이 되도록 하고 싶다. 그 경우의 수를 구하시오. (각각의 동전은 몇 개라도 사용할 수 있다.) 입력 첫째줄에 n, k가 주어진다. (1 ≤ n ≤ 100, 1 ≤ k ≤ 10,000) 다음 n개의 줄에는 각각의 동전의 가치가 주어진다. 출력 첫째 줄에 경우의 수를 출력한다. 경우의 수는 2^31보다 작다. 해결 방법</summary></entry></feed>
