@@ -1,4 +1,55 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-12-07T23:34:55+09:00</updated><id>http://localhost:4000/</id><entry><title type="html">BOJ 14500 테트로미노</title><link href="http://localhost:4000/posts/2017/12/07/BOJ14500.html" rel="alternate" type="text/html" title="BOJ 14500 테트로미노" /><published>2017-12-07T22:24:00+09:00</published><updated>2017-12-07T22:24:00+09:00</updated><id>http://localhost:4000/posts/2017/12/07/BOJ14500</id><content type="html" xml:base="http://localhost:4000/posts/2017/12/07/BOJ14500.html">&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-12-08T18:06:03+09:00</updated><id>http://localhost:4000/</id><entry><title type="html">BOJ 10808 알파벳 개</title><link href="http://localhost:4000/posts/2017/12/08/BOJ10808.html" rel="alternate" type="text/html" title="BOJ 10808 알파벳 개" /><published>2017-12-08T09:04:00+09:00</published><updated>2017-12-08T09:04:00+09:00</updated><id>http://localhost:4000/posts/2017/12/08/BOJ10808</id><content type="html" xml:base="http://localhost:4000/posts/2017/12/08/BOJ10808.html">&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/10808&quot;&gt;문제&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;&lt;br /&gt;
+알파벳 소문자로만 이루어진 단어 S가 주어진다. 이 때, 각 알파벳이 단어에 몇 개가 포함되어 있는지 구하는 프로그램을 작성하시오.
+&lt;br /&gt;&lt;/p&gt;
+&lt;h1 id=&quot;입력&quot;&gt;입력&lt;/h1&gt;
+&lt;p&gt;&lt;br /&gt;
+첫째 줄에 단어 S가 주어진다. 단어의 길이는 100을 넘지 않으며, 알파벳 소문자로만 이루어져 있다.
+&lt;br /&gt;&lt;/p&gt;
+&lt;h1 id=&quot;출력&quot;&gt;출력&lt;/h1&gt;
+&lt;p&gt;&lt;br /&gt;
+단어에 포함되어 있는 a의 개수, b의 개수, …, z의 개수를 공백으로 구분해서 출력한다.
+&lt;br /&gt;&lt;/p&gt;
+&lt;h1 id=&quot;해결-방법&quot;&gt;해결 방법&lt;/h1&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;간단하다. 소문자만 되니까 그것을 이용해서 배열을 만들어서 하면 해결한다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;배열의 범위를 아스키코드의 숫자로 하지말구 - ‘a’를 하여서 0~25의 배열 위치에 각 값을 위치시키면 공간에 대한 절약도 할 수 있다.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h1 id=&quot;코드&quot;&gt;코드&lt;/h1&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+#include &amp;lt;string&amp;gt;
+
+using namespace std;
+
+int alphabet[26];
+
+int main() {
+	string input_string;
+	cin &amp;gt;&amp;gt; input_string;
+	int input_string_length = input_string.length();
+	for (int i = 0; i &amp;lt; input_string_length; i++) {
+		alphabet[input_string.at(i) - 'a']++;
+	}
+
+	for (int i = 0; i &amp;lt; 26; i++)
+	{
+		cout &amp;lt;&amp;lt; alphabet[i];
+		if (i != 25) cout &amp;lt;&amp;lt; &quot; &quot;;
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">문제</summary></entry><entry><title type="html">BOJ 14500 테트로미노</title><link href="http://localhost:4000/posts/2017/12/07/BOJ14500.html" rel="alternate" type="text/html" title="BOJ 14500 테트로미노" /><published>2017-12-07T22:24:00+09:00</published><updated>2017-12-07T22:24:00+09:00</updated><id>http://localhost:4000/posts/2017/12/07/BOJ14500</id><content type="html" xml:base="http://localhost:4000/posts/2017/12/07/BOJ14500.html">&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/14500&quot;&gt;문제&lt;/a&gt;&lt;/h1&gt;
 
 &lt;p&gt;&lt;br /&gt;
@@ -809,115 +860,4 @@ int main() {
 	}
 	cout &amp;lt;&amp;lt; index[n];
 }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">문제 3×N 크기의 벽을 2×1, 1×2 크기의 타일로 채우는 경우의 수를 구해보자. 입력 첫째 줄에 N(1 ≤ N ≤ 30)이 주어진다. 출력 첫째 줄에 경우의 수를 출력한다. 해결 방법</summary></entry><entry><title type="html">BOJ 14501 퇴사</title><link href="http://localhost:4000/posts/2017/11/21/BOJ14501.html" rel="alternate" type="text/html" title="BOJ 14501 퇴사" /><published>2017-11-21T14:30:00+09:00</published><updated>2017-11-21T14:30:00+09:00</updated><id>http://localhost:4000/posts/2017/11/21/BOJ14501</id><content type="html" xml:base="http://localhost:4000/posts/2017/11/21/BOJ14501.html">&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/14501&quot;&gt;문제&lt;/a&gt;&lt;/h1&gt;
-&lt;p&gt;&lt;br /&gt;
-상담원으로 일하고 있는 백준이는 퇴사를 하려고 한다.&lt;/p&gt;
-
-&lt;p&gt;오늘부터 N+1일째 되는날 퇴사를 하기 위해서, 남은 N일 동안 최대한 많은 상담을 하려고 한다.&lt;/p&gt;
-
-&lt;p&gt;백준이는 비서에게 최대한 많은 상담을 잡으라고 부탁을 했고, 비서는 하루에 하나씩 서로 다른 사람의 상담을 잡아놓았다.&lt;/p&gt;
-
-&lt;p&gt;각각의 상담은 상담을 완료하는데 걸리는 기간 Ti와 상담을 했을 때 받을 수 있는 금액 Pi로 이루어져 있다.&lt;/p&gt;
-
-&lt;p&gt;N = 7인 경우에 다음과 같은 상담 일정표를 보자.
-&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;pre&gt;
- 	1일	2일	3일	4일	5일	6일	7일
-Ti	3	5	1	1	2	4	2
-Pi	10	20	10	20	15	40	200
-&lt;/pre&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;1일에 잡혀있는 상담은 총 3일이 걸리며, 상담했을 때 받을 수 있는 금액은 10이다. 5일에 잡혀있는 상담은 총 2일이 걸리며, 받을 수 있는 금액은 15이다.&lt;/p&gt;
-
-&lt;p&gt;상담을 하는데 필요한 기간은 1일보다 클 수 있기 때문에, 모든 상담을 할 수는 없다. 예를 들어서 1일에 상담을 하게 되면, 2일, 3일에 있는 상담은 할 수 없게 된다. 2일에 있는 상담을 하게 되면, 3, 4, 5, 6일에 잡혀있는 상담은 할 수 없다.&lt;/p&gt;
-
-&lt;p&gt;또한, N+1일 째에는 회사에 없기 때문에, 6, 7일에 있는 상담을 할 수 없다.&lt;/p&gt;
-
-&lt;p&gt;퇴사 전에 할 수 있는 상담의 최대 이익은 1일, 4일, 5일에 있는 상담을 하는 것이며, 이 때의 이익은 10+20+15=45이다.&lt;/p&gt;
-
-&lt;p&gt;상담을 적절히 했을 때, 백준이가 얻을 수 있는 최대 수익을 구하는 프로그램을 작성하시오.
-&lt;br /&gt;&lt;/p&gt;
-&lt;h1 id=&quot;입력&quot;&gt;입력&lt;/h1&gt;
-&lt;p&gt;&lt;br /&gt;
-첫째 줄에 N (1 ≤ N ≤ 15)이 주어진다.&lt;/p&gt;
-
-&lt;p&gt;둘째 줄부터 N개의 줄에 Ti와 Pi가 공백으로 구분되어서 주어지며, 1일부터 N일까지 순서대로 주어진다. (1 ≤ Ti ≤ 5, 1 ≤ Pi ≤ 1,000)
-&lt;br /&gt;&lt;/p&gt;
-&lt;h1 id=&quot;출력&quot;&gt;출력&lt;/h1&gt;
-&lt;p&gt;&lt;br /&gt;
-첫째 줄에 백준이가 얻을 수 있는 최대 이익을 출력한다.
-&lt;br /&gt;&lt;/p&gt;
-&lt;h1 id=&quot;해결-방법&quot;&gt;해결 방법&lt;/h1&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;최대 이익을 찾으려는 것이다. 근데 데이터 셋이 크지 않다는 것이 이번 문제를 푸는 가장 쉬운 접근 법이다. 즉, 완전 탐색을 해도 된다는 것이다. 하지만 그래도 효율적으로 접근하기위해 배열에 값을 저장하여 사용하는 DP의 방법인 메모리제이션을 이용하였다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;점화식으로 포문을 이용하여서 푸는 방법이 내 생각에는 더 효율적으로 보이지만 점화식을 잘 모르겠다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;디피의 0번째 부터 채워가는 바텀업도 아니구, 끝에서 부터 만들어 나가는 탑다운도 아니다. 그냥 재귀호출을 통해 해결해나가는 것이고, 어떻게 보면 깊이우선탐색으로도 보일 수 있다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h1 id=&quot;코드&quot;&gt;코드&lt;/h1&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import java.util.Scanner;
-
-public class BOJ14501 {
-
-static int[][] dp;
-static int[][] data;
-static int day;
-public static void main(String args[]){
-    Scanner sc = new Scanner(System.in);
-    day = sc.nextInt();
-    dp = new int[day+1][2];
-    data = new int[day][2];
-
-    for(int i=0;i&amp;lt;day;i++){
-        data[i][0]= sc.nextInt();
-        data[i][1]= sc.nextInt();
-        dp[i][0]=-1;
-        dp[i][1]=-1;
-    }
-    int result = 0;
-
-    result = DFS(0);
-    System.out.println(result);
-    sc.close();
-}
-
-static int DFS(int index){
-    int result=0;
-
-    if(dp[index][0]!=-1){
-        if(dp[index][0]&amp;gt;dp[index][1]){
-            return  dp[index][0];
-        }else return dp[index][1];
-    }
-
-    if(index-1 &amp;gt;= day){
-        return 0;
-    }
-
-    dp[index][0] = DFS(index+1);
-    if(data[index][0]+index-1 &amp;lt; day) {
-        dp[index][1] = DFS(index + data[index][0]) + data[index][1];
-    }else{
-        dp[index][1] = 0;
-    }
-
-    if(dp[index][0]&amp;gt;dp[index][1]){
-        result += dp[index][0];
-    }else result+= dp[index][1];
-
-    return result;
-} }
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">문제 상담원으로 일하고 있는 백준이는 퇴사를 하려고 한다.</summary></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">문제 3×N 크기의 벽을 2×1, 1×2 크기의 타일로 채우는 경우의 수를 구해보자. 입력 첫째 줄에 N(1 ≤ N ≤ 30)이 주어진다. 출력 첫째 줄에 경우의 수를 출력한다. 해결 방법</summary></entry></feed>

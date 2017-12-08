@@ -3,7 +3,7 @@
   <head>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title>Jinwook.Song- About this blog</title>
+      <title>Jinwook.Song- BOJ 10808 알파벳 개</title>
       <meta name="viewport" content="width=device-width">
 
       <!-- syntax highlighting CSS -->
@@ -140,34 +140,69 @@
       <img id="cover-photo" src="/images/cover.jpg">
     </div>
     <div id="info-container">
-      <h1 id="title">About this blog</h1>
-      <span id="date">19 Nov 2017</span>
+      <h1 id="title">BOJ 10808 알파벳 개</h1>
+      <span id="date">08 Dec 2017</span>
     </div>
   </div>
 
   <div class="post">
-    <h2 id="blog-content">Blog content</h2>
+    <p><br /></p>
+<h1 id="문제"><a href="https://www.acmicpc.net/problem/10808">문제</a></h1>
 
-<p>I am a computer programmer. <br />
-I am studying for the algorithm contest. <br />
-This is where I write algorithms for algorithms. <br /></p>
+<p><br />
+알파벳 소문자로만 이루어진 단어 S가 주어진다. 이 때, 각 알파벳이 단어에 몇 개가 포함되어 있는지 구하는 프로그램을 작성하시오.
+<br /></p>
+<h1 id="입력">입력</h1>
+<p><br />
+첫째 줄에 단어 S가 주어진다. 단어의 길이는 100을 넘지 않으며, 알파벳 소문자로만 이루어져 있다.
+<br /></p>
+<h1 id="출력">출력</h1>
+<p><br />
+단어에 포함되어 있는 a의 개수, b의 개수, …, z의 개수를 공백으로 구분해서 출력한다.
+<br /></p>
+<h1 id="해결-방법">해결 방법</h1>
+<p><br /></p>
 
-<h2 id="introducing-flex-a-jekyll-theme">Introducing Flex, a Jekyll theme</h2>
+<ol>
+  <li>
+    <p>간단하다. 소문자만 되니까 그것을 이용해서 배열을 만들어서 하면 해결한다.</p>
+  </li>
+  <li>
+    <p>배열의 범위를 아스키코드의 숫자로 하지말구 - ‘a’를 하여서 0~25의 배열 위치에 각 값을 위치시키면 공간에 대한 절약도 할 수 있다.</p>
+  </li>
+</ol>
 
-<p>Flex is a minimalist, responsive theme based on the website, <a href="http://thedevelopment.co">The Development</a>.</p>
+<p><br /></p>
+<h1 id="코드">코드</h1>
+<p><br /></p>
 
-<h2 id="open-sourced-on-github">Open Sourced on GitHub</h2>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
 
-<p>Flex is open sourced on GitHub and is licensed under the <a href="http://opensource.org/licenses/MIT">MIT License</a>. Feel free to contribute to it anytime!</p>
+using namespace std;
 
-<h2 id="reference">Reference</h2>
+int alphabet[26];
 
-<p>The theme currently being used was based on <a href="https://github.com/the-development/flex">this</a></p>
+int main() {
+	string input_string;
+	cin &gt;&gt; input_string;
+	int input_string_length = input_string.length();
+	for (int i = 0; i &lt; input_string_length; i++) {
+		alphabet[input_string.at(i) - 'a']++;
+	}
+
+	for (int i = 0; i &lt; 26; i++)
+	{
+		cout &lt;&lt; alphabet[i];
+		if (i != 25) cout &lt;&lt; " ";
+	}
+}
+</code></pre></div></div>
 
   </div>
   <div class="colophon">
     <p>
-      <span id="pub-date">Published on 19 Nov 2017</span> <span class="separator">&bull;</span>
+      <span id="pub-date">Published on 08 Dec 2017</span> <span class="separator">&bull;</span>
       <span id="social">Refer to <a href="https://github.com/the-development/flex">Theme</a></span>
     </p>
   </div>
