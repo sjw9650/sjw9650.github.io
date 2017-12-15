@@ -30,6 +30,13 @@
           <ul class="posts-list">
             
               <li class="post-link">
+                <a class="post-title" href="/posts/2017/12/15/BOJ13241.html">
+                  <span class="post-date">15 Dec 2017</span>
+                  BOJ 13241 최소공배
+                </a>
+              </li>
+            
+              <li class="post-link">
                 <a class="post-title" href="/posts/2017/12/12/BOJ1697.html">
                   <span class="post-date">12 Dec 2017</span>
                   BOJ 1697 숨바꼭질
@@ -156,93 +163,102 @@
       <img id="cover-photo" src="/images/cover.jpg">
     </div>
     <div id="info-container">
-      <h1 id="title">BOJ 1697 숨바꼭질</h1>
-      <span id="date">12 Dec 2017</span>
+      <h1 id="title">BOJ 13241 최소공배</h1>
+      <span id="date">15 Dec 2017</span>
     </div>
   </div>
 
   <div class="post">
     <p><br /></p>
-<h1 id="문제"><a href="https://www.acmicpc.net/problem/1697">문제</a></h1>
+<h1 id="문제"><a href="https://www.acmicpc.net/problem/13241">문제</a></h1>
 
 <p><br />
-수빈이는 동생과 숨바꼭질을 하고 있다. 수빈이는 현재 점 N(0 ≤ N ≤ 100,000)에 있고, 동생은 점 K(0 ≤ K ≤ 100,000)에 있다. 수빈이는 걷거나 순간이동을 할 수 있다. 만약, 수빈이의 위치가 X일 때 걷는다면 1초 후에 X-1 또는 X+1로 이동하게 된다. 순간이동을 하는 경우에는 1초 후에 2*X의 위치로 이동하게 된다.</p>
+정수 A는 정수 B를 0보다 큰 정수인 N회 곱해 A를 구할 수 있다면 A는 B의 배수이다.</p>
 
-<p>수빈이와 동생의 위치가 주어졌을 때, 수빈이가 동생을 찾을 수 있는 가장 빠른 시간이 몇 초 후인지 구하는 프로그램을 작성하시오.
+<p>예:수</p>
+
+<p>10은 5의 배수이다 (5<em>2 = 10)
+10은 10의 배수이다(10</em>1 = 10)
+6은 1의 배수이다(1*6 = 6)
+20은 1, 2, 4,5,10,20의 배수이다.
+다른 예:</p>
+
+<p>2와 5의 최소공배수는 10이고, 그 이유는 2와 5보다 작은 공배수가 없기 때문이다.
+10과 20의 최소공배수는 20이다.
+5와 3의 최소공배수는 15이다.
+당신은 두 수에 대하여 최소공배수를 구하는 프로그램을 작성 하는 것이 목표이다.
 <br /></p>
 <h1 id="입력">입력</h1>
 <p><br />
-첫 번째 줄에 수빈이가 있는 위치 N과 동생이 있는 위치 K가 주어진다
+한 줄에 두 정수 A와 B가 공백으로 분리되어 주어진다.</p>
+
+<p>50%의 입력 중 A와 B는 1000(103)보다 작다. 다른 50%의 입력은 1000보다 크고 100000000(108)보다 작다.</p>
+
+<p>추가: 큰 수 입력에 대하여 변수를 64비트 정수로 선언하시오. C/C++에서는 long long int를 사용하고, Java에서는 long을 사용하시오.
 <br /></p>
 <h1 id="출력">출력</h1>
 <p><br /></p>
 
-<p>수빈이가 동생을 찾는 가장 빠른 시간을 출력한다.</p>
+<p>A와 B의 최소공배수를 한 줄에 출력한다.</p>
 
 <p><br /></p>
 <h1 id="해결-방법">해결 방법</h1>
-<p><br /></p>
 
 <ol>
   <li>
-    <p>DFS를 쓰면 어려워지는 문제이다. DFS와 BFS의 차이를 보여줄 수 있는 문제이기도 하다.</p>
-  </li>
-  <li>
-    <p>BFS를 이용하였고, int visited[100001] 배열에는 각 방문하였는 지? 와 각 레벨이 기록된다.따라서 해당 위치까지의 최단 거리를 구할 수 있게 된다.</p>
-  </li>
-  <li>
-    <p>포스팅하면서 생각난거지만, 비교시 처음위치에 0을 대입하면 코드가 조금 더 돌아가게 된다. 따라서 1을 넣고 마지막 출력시에 -1을 해주는 게 더 효율적이라고 생각한다.</p>
+    <p>문제 자체에서 유클리드 호제법을 이용하고 있다. 유클리드 호제법은 다음과 같다.</p>
+
+    <p>유클리드 호제법</p>
+
+    <p>a 를  b로 나눈  나머지를 r이라고 했을 때, 
+ GCD(a,b) == GCD(b,r) 
+ if r==0 , b is GCD</p>
+
+    <p>ex
+ GCD(24,16) == GCD(16,8) == GCD(8,0) ==8</p>
+
+    <p>최소 공배수는 GCD의 응용
+ 최소 공약수를 g라고 할때</p>
+
+    <p>최소 공배수  l = g * (a/g) * (b/g) 이다.</p>
   </li>
 </ol>
+
+<p><br /></p>
 
 <p><br /></p>
 <h1 id="코드">코드</h1>
 <p><br /></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include&lt;iostream&gt;
-#include&lt;algorithm&gt;
-#include &lt;deque&gt;
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;iostream&gt;
+
 using namespace std;
-int visited[100001];
 
-int bfs(int n, int k) {
-	deque&lt;int&gt; points;
-	visited[n] = 0;
-	points.push_back(n);
-	while (!points.empty()) {
-		int temp = points.front();
-		points.pop_front();
-
-		if (temp == k) return visited[temp];
-
-		if (temp + 1 &lt;= 100000 &amp;&amp; visited[temp + 1] == 0) {
-			visited[temp + 1] = visited[temp] + 1;
-			points.push_back(temp + 1);
-		}
-
-		if (temp *2 &lt;= 100000 &amp;&amp; visited[temp * 2] == 0) {
-			visited[temp * 2] = visited[temp] + 1;
-			points.push_back(temp * 2);
-		}
-
-		if (temp - 1 &gt;= 0 &amp;&amp; visited[temp -1] == 0) {
-			visited[temp - 1] = visited[temp] + 1;
-			points.push_back(temp - 1);
-		}
-	}
-
-}
 int main() {
-	int n, k;
-	cin &gt;&gt; n &gt;&gt; k;
-	cout &lt;&lt; bfs(n, k);
+
+		long long int n, m;
+
+		cin &gt;&gt; n &gt;&gt; m;
+		long long int gcd, gdb;
+		long long int a, b, r;
+		a = n; b = m;
+		r = a%b;
+		while (r != 0) {
+			a = b;
+			b = r;
+			r = a % b;
+		}
+		gcd = b;
+		gdb = n*m / gcd;
+		cout &lt;&lt;gdb&lt;&lt;"\n";
+
 }
 </code></pre></div></div>
 
   </div>
   <div class="colophon">
     <p>
-      <span id="pub-date">Published on 12 Dec 2017</span> <span class="separator">&bull;</span>
+      <span id="pub-date">Published on 15 Dec 2017</span> <span class="separator">&bull;</span>
       <span id="social">Refer to <a href="https://github.com/the-development/flex">Theme</a></span>
     </p>
   </div>
