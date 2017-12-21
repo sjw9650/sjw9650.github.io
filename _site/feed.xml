@@ -1,4 +1,78 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-12-15T23:21:45+09:00</updated><id>http://localhost:4000/</id><entry><title type="html">BOJ 13241 최소공배</title><link href="http://localhost:4000/posts/2017/12/15/BOJ13241.html" rel="alternate" type="text/html" title="BOJ 13241 최소공배" /><published>2017-12-15T14:18:00+09:00</published><updated>2017-12-15T14:18:00+09:00</updated><id>http://localhost:4000/posts/2017/12/15/BOJ13241</id><content type="html" xml:base="http://localhost:4000/posts/2017/12/15/BOJ13241.html">&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-12-21T22:41:09+09:00</updated><id>http://localhost:4000/</id><entry><title type="html">BOJ 1138 한 줄로 서기</title><link href="http://localhost:4000/posts/2017/12/21/BOJ1138.html" rel="alternate" type="text/html" title="BOJ 1138 한 줄로 서기" /><published>2017-12-21T13:34:00+09:00</published><updated>2017-12-21T13:34:00+09:00</updated><id>http://localhost:4000/posts/2017/12/21/BOJ1138</id><content type="html" xml:base="http://localhost:4000/posts/2017/12/21/BOJ1138.html">&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/1138&quot;&gt;문제&lt;/a&gt;&lt;/h1&gt;
+
+&lt;p&gt;&lt;br /&gt;
+N명의 사람들은 매일 아침 한 줄로 선다. 이 사람들은 자리를 자리를 마음대로 서지 못하고 오민식의 지시대로 선다.&lt;/p&gt;
+
+&lt;p&gt;어느날 사람들은 오민식이 사람들이 줄 서는 위치를 기록해 놓는다는 것을 알았다. 그리고 아침에 자기가 기록해 놓은 것과 사람들이 줄을 선 위치가 맞는지 확인한다.&lt;/p&gt;
+
+&lt;p&gt;사람들은 자기보다 큰 사람이 왼쪽에 몇 명 있었는지만을 기억한다. N명의 사람이 있고, 사람들의 키는 1부터 N까지 모두 다르다.&lt;/p&gt;
+
+&lt;p&gt;각 사람들이 기억하는 정보가 주어질 때, 줄을 어떻게 서야 하는지 출력하는 프로그램을 작성하시오.
+&lt;br /&gt;&lt;/p&gt;
+&lt;h1 id=&quot;입력&quot;&gt;입력&lt;/h1&gt;
+&lt;p&gt;&lt;br /&gt;
+첫째 줄에 사람의 수 N이 주어진다. N은 10보다 작거나 같은 자연수이다. 둘째 줄에는 키가 1인 사람부터 차례대로 자기보다 키가 큰 사람이 왼쪽에 몇 명이 있었는지 주어진다. i번째 수는 0보다 크거나 같고, N-i-1보다 작거나 같다.
+&lt;br /&gt;&lt;/p&gt;
+&lt;h1 id=&quot;출력&quot;&gt;출력&lt;/h1&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;첫째 줄에 줄을 선 순서대로 키를 출력한다.&lt;/p&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h1 id=&quot;해결-방법&quot;&gt;해결 방법&lt;/h1&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;수학적인 문제라고 생각한다. N이 최대 10이므로 O(N^2)의 방법으로 풀이하였습니다.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;수학인줄 알았으나 그리디같기도 하다. 1번째 숫자부터 넣어야만 된다. 비어 있는 경우 해당 숫자의 위치 값이 였던 값을 -1 하며, 입력값이 0 이 되어있을 때 그 자리가 비어있을 경우에만 값을 넣는 방식이다. 만약 그 자리가 비어있지 않다면 한칸 더 움직인다.&lt;br /&gt;
+있 
+&lt;br /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;h1 id=&quot;코드&quot;&gt;코드&lt;/h1&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+using namespace std;
+
+int person_data[11];
+int array_person[11];
+int visited[11];
+int main() {
+	int N;
+	cin &amp;gt;&amp;gt; N;
+	for (int i = 1; i &amp;lt;= N; i++) {
+		cin &amp;gt;&amp;gt; person_data[i];
+	}
+	for (int i = 1; i &amp;lt;= N; i++) {
+		int temp = person_data[i];
+
+		for (int j = 1; j &amp;lt;= N; j++) {
+			if (temp == 0 &amp;amp;&amp;amp; visited[j] == 0) {
+				array_person[j] = i;
+				visited[j] = 1;
+				break;
+			}
+			else if (temp != 0 &amp;amp;&amp;amp; visited[j] == 0) temp--;
+		}
+		
+	}
+
+	for (int i = 1; i &amp;lt;= N; i++) {
+		if(i!=N)
+			cout &amp;lt;&amp;lt; array_person[i] &amp;lt;&amp;lt; &quot; &quot;;
+		else 
+			cout &amp;lt;&amp;lt; array_person[i]&amp;lt;&amp;lt;&quot;\n&quot;;
+	}
+
+
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">문제</summary></entry><entry><title type="html">BOJ 13241 최소공배</title><link href="http://localhost:4000/posts/2017/12/15/BOJ13241.html" rel="alternate" type="text/html" title="BOJ 13241 최소공배" /><published>2017-12-15T14:18:00+09:00</published><updated>2017-12-15T14:18:00+09:00</updated><id>http://localhost:4000/posts/2017/12/15/BOJ13241</id><content type="html" xml:base="http://localhost:4000/posts/2017/12/15/BOJ13241.html">&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/13241&quot;&gt;문제&lt;/a&gt;&lt;/h1&gt;
 
 &lt;p&gt;&lt;br /&gt;
@@ -890,79 +964,5 @@ int main(){
   }
 
   cout&amp;lt;&amp;lt;result;
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">문제</summary></entry><entry><title type="html">BOJ 2579 계단 오르기</title><link href="http://localhost:4000/posts/2017/11/29/BOJ2579.html" rel="alternate" type="text/html" title="BOJ 2579  계단 오르기" /><published>2017-11-29T14:58:00+09:00</published><updated>2017-11-29T14:58:00+09:00</updated><id>http://localhost:4000/posts/2017/11/29/BOJ2579</id><content type="html" xml:base="http://localhost:4000/posts/2017/11/29/BOJ2579.html">&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h1 id=&quot;문제&quot;&gt;&lt;a href=&quot;https://www.acmicpc.net/problem/2579&quot;&gt;문제&lt;/a&gt;&lt;/h1&gt;
-
-&lt;p&gt;&lt;br /&gt;
-계단 오르기 게임은 계단 아래 시작점부터 계단 꼭대기에 위치한 도착점까지 가는 게임이다. &amp;lt;그림 1&amp;gt;과 같이 각각의 계단에는 일정한 점수가 쓰여 있는데 계단을 밟으면 그 계단에 쓰여 있는 점수를 얻게 된다.&lt;/p&gt;
-
-&lt;p&gt;예를 들어 &amp;lt;그림 2&amp;gt;와 같이 시작점에서부터 첫 번째, 두 번째, 네 번째, 여섯 번째, 계단을 밟아 도착점에 도달하면 총 점수는 10 + 20 + 25 + 20 = 75점이 된다.&lt;/p&gt;
-
-&lt;p&gt;계단 오르는 데는 다음과 같은 규칙이 있다.&lt;/p&gt;
-
-&lt;p&gt;계단은 한 번에 한 계단씩 또는 두 계단씩 오를 수 있다. 즉, 한 계단을 밟으면서 이어서 다음 계단이나, 다음 다음 계단으로 오를 수 있다.
-연속된 세 개의 계단을 모두 밟아서는 안된다. 단, 시작점은 계단에 포함되지 않는다.
-마지막 도착 계단은 반드시 밟아야 한다.
-따라서 첫 번째 계단을 밟고 이어 두 번째 계단이나, 세 번째 계단으로 오를 수 있다. 하지만, 첫 번째 계단을 밟고 이어 네 번째 계단으로 올라가거나, 첫 번째, 두 번째, 세번째 계단을 연속해서 모두 밟을 수는 없다.&lt;/p&gt;
-
-&lt;p&gt;각 계단에 쓰여 있는 점수가 주어질 때 이 게임에서 얻을 수 있는 총 점수의 최대값을 구하는 프로그램을 작성하시오.
-&lt;br /&gt;&lt;/p&gt;
-&lt;h1 id=&quot;입력&quot;&gt;입력&lt;/h1&gt;
-&lt;p&gt;&lt;br /&gt;
-입력의 첫째 줄에 계단의 개수가 주어진다.&lt;/p&gt;
-
-&lt;p&gt;둘째 줄부터 한 줄에 하나씩 제일 아래에 놓인 계단부터 순서대로 각 계단에 쓰여 있는 점수가 주어진다. 계단의 개수는 300이하의 자연수이고, 계단에 쓰여 있는 점수는 10,000이하의 자연수이다.
-&lt;br /&gt;&lt;/p&gt;
-&lt;h1 id=&quot;출력&quot;&gt;출력&lt;/h1&gt;
-&lt;p&gt;&lt;br /&gt;
-첫째 줄에 계단 오르기 게임에서 얻을 수 있는 총 점수의 최대값을 출력한다.
-&lt;br /&gt;&lt;/p&gt;
-&lt;h1 id=&quot;해결-방법&quot;&gt;해결 방법&lt;/h1&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;
-    &lt;p&gt;앞서 포스팅한 2156번 포도주 시식 문제와 매우 유사하다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;다른 점은 포도주 시식의 경우 최대값을 위해서는 연속해서 2잔 이상을 마시지 않아도 되지만 계단 오르기의 경우 한잔만 건너뛸 수 있다.&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;각 위치의 계단은 세가지의 경우를 가진다.
-0 = 밟지 않는다. (아래의 계단을 밟았어야한다.)
-1 = 아래의 계단은 밟지않고, 이번 계단만 밟는다. (즉, 2계단 위를 밟았다.)
-2 = 아래의 계단을 밟고, 이번 계단도 밟는다. (즉, 1계단 위를 밟는다.)&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;위의 세가지 경우를 데이터에 저장하고, 이를 이용하여 최대값을 구하면 된다.&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;h1 id=&quot;코드&quot;&gt;코드&lt;/h1&gt;
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
-
-using namespace std;
-
-int dp[301][3];
-int stairs[301];
-
-int main(){
-  int n;
-  cin&amp;gt;&amp;gt;n;
-  for(int i =1;i&amp;lt;=n;i++)
-    cin&amp;gt;&amp;gt;stairs[i];
-
-  for(int i=1;i&amp;lt;n;i++){
-    dp[i][0] = max(dp[i-1][1],dp[i-1][2]); // i 위치는 밟지 않는 경우 //한 계단 or 두 계단 전은 밟아야함
-    dp[i][1] = dp[i-1][0]+stairs[i]; //밟는 경우 중 연속 계수가 1
-    dp[i][2] = dp[i-1][1]+stairs[i]; // 밟는 경우 중 연속 계수가 2
-  }
-  int result =  max(dp[n-1][1],dp[n-1][0]) + stairs[n];
-  cout&amp;lt;&amp;lt;result&amp;lt;&amp;lt;&quot;\n&quot;;
-
 }
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">문제</summary></entry></feed>

@@ -3,7 +3,7 @@
   <head>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title>Jinwook.Song- BOJ 2293 동전 1</title>
+      <title>Jinwook.Song- BOJ 1138 한 줄로 서기</title>
       <meta name="viewport" content="width=device-width">
 
       <!-- syntax highlighting CSS -->
@@ -168,38 +168,44 @@
       <img id="cover-photo" src="/images/cover.jpg">
     </div>
     <div id="info-container">
-      <h1 id="title">BOJ 2293 동전 1</h1>
-      <span id="date">20 Nov 2017</span>
+      <h1 id="title">BOJ 1138 한 줄로 서기</h1>
+      <span id="date">21 Dec 2017</span>
     </div>
   </div>
 
   <div class="post">
     <p><br /></p>
-<h1 id="문제"><a href="https://www.acmicpc.net/problem/2293">문제</a></h1>
+<h1 id="문제"><a href="https://www.acmicpc.net/problem/1138">문제</a></h1>
+
 <p><br />
-n가지 종류의 동전이 있다. 각각의 동전이 나타내는 가치는 다르다. 이 동전들을 적당히 사용해서, 그 가치의 합이 k원이 되도록 하고 싶다. 그 경우의 수를 구하시오. (각각의 동전은 몇 개라도 사용할 수 있다.)
+N명의 사람들은 매일 아침 한 줄로 선다. 이 사람들은 자리를 자리를 마음대로 서지 못하고 오민식의 지시대로 선다.</p>
+
+<p>어느날 사람들은 오민식이 사람들이 줄 서는 위치를 기록해 놓는다는 것을 알았다. 그리고 아침에 자기가 기록해 놓은 것과 사람들이 줄을 선 위치가 맞는지 확인한다.</p>
+
+<p>사람들은 자기보다 큰 사람이 왼쪽에 몇 명 있었는지만을 기억한다. N명의 사람이 있고, 사람들의 키는 1부터 N까지 모두 다르다.</p>
+
+<p>각 사람들이 기억하는 정보가 주어질 때, 줄을 어떻게 서야 하는지 출력하는 프로그램을 작성하시오.
 <br /></p>
 <h1 id="입력">입력</h1>
 <p><br />
-첫째줄에 n, k가 주어진다. (1 ≤ n ≤ 100, 1 ≤ k ≤ 10,000) 다음 n개의 줄에는 각각의 동전의 가치가 주어진다.
+첫째 줄에 사람의 수 N이 주어진다. N은 10보다 작거나 같은 자연수이다. 둘째 줄에는 키가 1인 사람부터 차례대로 자기보다 키가 큰 사람이 왼쪽에 몇 명이 있었는지 주어진다. i번째 수는 0보다 크거나 같고, N-i-1보다 작거나 같다.
 <br /></p>
 <h1 id="출력">출력</h1>
-<p><br />
-첫째 줄에 경우의 수를 출력한다. 경우의 수는 2^31보다 작다.
-<br /></p>
-<h1 id="해결-방법">해결 방법</h1>
 <p><br /></p>
+
+<p>첫째 줄에 줄을 선 순서대로 키를 출력한다.</p>
+
+<p><br /></p>
+<h1 id="해결-방법">해결 방법</h1>
 
 <ol>
   <li>
-    <p>찾으려는 수는 (찾으려는 수 - 동전의 값) 들의 합이다.</p>
+    <p>수학적인 문제라고 생각한다. N이 최대 10이므로 O(N^2)의 방법으로 풀이하였습니다.</p>
   </li>
   <li>
-    <p>중복이 되면 안된다.</p>
-    <blockquote>
-      <p>예를 들어 1과 2로 5를 만들려고 할때, 1112 1121 1211 2111 은 순서 다르고 다 같은 값을 만들게 된다. 따라서 중복을 제거하기 위해 중복을 안만드는 방법을 선택하였다. <br />
-그 방법은 가장 값이 낮은 동전 부터 배열을 채워나가는 것이다.</p>
-    </blockquote>
+    <p>수학인줄 알았으나 그리디같기도 하다. 1번째 숫자부터 넣어야만 된다. 비어 있는 경우 해당 숫자의 위치 값이 였던 값을 -1 하며, 입력값이 0 이 되어있을 때 그 자리가 비어있을 경우에만 값을 넣는 방식이다. 만약 그 자리가 비어있지 않다면 한칸 더 움직인다.<br />
+있 
+<br /></p>
   </li>
 </ol>
 
@@ -207,50 +213,47 @@ n가지 종류의 동전이 있다. 각각의 동전이 나타내는 가치는 �
 <h1 id="코드">코드</h1>
 <p><br /></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;iostream&gt;
+using namespace std;
 
-public class Main {
+int person_data[11];
+int array_person[11];
+int visited[11];
+int main() {
+	int N;
+	cin &gt;&gt; N;
+	for (int i = 1; i &lt;= N; i++) {
+		cin &gt;&gt; person_data[i];
+	}
+	for (int i = 1; i &lt;= N; i++) {
+		int temp = person_data[i];
 
-static int[] dp;
-static int[] coins;
-static int coinsCounts;
-public static void main(String args[]) throws IOException{
-    dp = new int [10001];
-    for(int i=0;i&lt;10001;i++){
-        dp[i] = 0;
-    }
+		for (int j = 1; j &lt;= N; j++) {
+			if (temp == 0 &amp;&amp; visited[j] == 0) {
+				array_person[j] = i;
+				visited[j] = 1;
+				break;
+			}
+			else if (temp != 0 &amp;&amp; visited[j] == 0) temp--;
+		}
+		
+	}
 
-    BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+	for (int i = 1; i &lt;= N; i++) {
+		if(i!=N)
+			cout &lt;&lt; array_person[i] &lt;&lt; " ";
+		else 
+			cout &lt;&lt; array_person[i]&lt;&lt;"\n";
+	}
 
-    String[] line = bf.readLine().split(" ");
-    coinsCounts = Integer.valueOf(line[0]);
-    int findValue = Integer.valueOf(line[1]);
-    coins = new int[coinsCounts];
 
-    for(int i=0;i&lt; coinsCounts;i++){
-        coins[i] = Integer.valueOf(bf.readLine());
-    }
-    dp[0] = 1;
-    for(int i=0;i &lt; coinsCounts;i++){
-        for(int j=1;j&lt;= findValue ;j++){
-            if(j-coins[i] &gt;= 0){
-                dp[j] += dp[j-coins[i]];
-            }
-        }
-    }
-
-    System.out.println(dp[findValue]);
-    bf.close();
-}	
 }
 </code></pre></div></div>
 
   </div>
   <div class="colophon">
     <p>
-      <span id="pub-date">Published on 20 Nov 2017</span> <span class="separator">&bull;</span>
+      <span id="pub-date">Published on 21 Dec 2017</span> <span class="separator">&bull;</span>
       <span id="social">Refer to <a href="https://github.com/the-development/flex">Theme</a></span>
     </p>
   </div>
